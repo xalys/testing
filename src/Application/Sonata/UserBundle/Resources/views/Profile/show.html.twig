@@ -1,0 +1,48 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends "base.html.twig" %}
+{% block body %}
+
+    {% block sonata_profile_content %}
+        {#{% sonata_template_box 'This is the user profile template. Feel free to override it.' %}#}
+        <section class="profile-info">
+            <div class="container">
+                <div class="left">
+                    <div class="name">{{ app.user }} {{ app.user.patronymic }}</div>
+                    <div class="tth"><span>Страна</span><span class="result">{{ app.user.land }}</span></div>
+                    <div class="tth"><span>Дата рождение</span><span
+                                class="result">{{ app.user.dateOfBirth|date('d-m-Y') }}</span></div>
+
+                    <div class="tth"><span>Пол</span>
+                        {% if app.user.gender == "M" %}
+                        <span class="result">  Male </span>
+                        {% elseif app.user.gender == "F" %}
+                        <span class="result">  Female </span>
+                        {% else  %}
+                        <span class="result">  Не указан </span>
+                        {% endif %}
+                    </div>
+                    <div class="tth"><span>Email</span><span class="result">{{ app.user.email }}</span></div>
+                    <div class="tth"> <span> Дата регистрации:</span><span
+                                class="result">{{ app.user.createdAt|date('d-m-Y') }}</span></div>
+                </div>
+                <div class="flag">
+                    {% if (app.user.land  and app.user.land.photo) %}
+                        <a class="flag-country-link"><img src="{% path app.user.land.photo, 'small' %}" alt=""></a>
+                    {% endif %}
+                    <a href="{{ path('fos_user_change_password') }}" class="edit-profile">Сменить пароль</a>
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+
+{% endblock %}

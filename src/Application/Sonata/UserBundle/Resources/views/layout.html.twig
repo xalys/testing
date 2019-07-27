@@ -1,0 +1,22 @@
+
+{% extends '::base.html.twig' %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock javascripts %}
+{% block stylesheets %}
+    {{ parent() }}
+    {#<link type="text/css" rel="stylesheet" href="{{ asset('public/css/fb.css') }}"/>#}
+{% endblock stylesheets %}
+{% block body %}
+    <section class="auth-page">
+        <div class="container">
+            <div class="center dark">
+                <div class="image"><img src="{{ asset('public/img/email.png') }}" alt=""></div>
+                <h1>Проверьте почтовый ящик</h1>
+                <p>Мы отправили письмо на ваш почтовый ящик.<br>Перейдите по ссылке в письме, чтобы подтвердить регистрацию</p>
+                <span>Если вы не нашли письмо на почте, то проверьте папку "спам"</span>
+            </div>
+        </div>
+    </section>
+{#    {{ block ('fos_user_content') }}#}
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Заказ {{ cart.createDate|date('d.m.Y H:i') }}</title>
+</head>
+<body>
+<h2>Заказ {{ cart.createDate|date('d.m.Y H:i') }}</h2>
+
+<h3>Имя : {{ cart.name }}</h3>
+<h3>Телефон : {{ cart.phoneNumber }}</h3>
+<h3>Адрес : {{ cart.address }}</h3>
+<h3>Сумма : {{ cart.totalPrice }}</h3>
+<h3>Нужна сдача с : {{ cart.changeMoney }}</h3>
+
+
+</body>

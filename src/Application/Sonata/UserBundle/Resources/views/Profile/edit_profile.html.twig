@@ -1,0 +1,70 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{#{% extends "SonataUserBundle:Profile:action.html.twig" %}#}
+{% extends "base.html.twig" %}
+
+{% block styles %}
+
+{% endblock %}
+{% block body %}
+
+{% block sonata_profile_content %}
+
+        <section class="auth-page">
+            <div class="container">
+
+                <div class="nav">
+                    <a href="{{ path('fos_user_change_password') }}" >Изменить пароль</a>
+                </div>
+
+            <div class="enter-form create-account dark">
+
+            {{ form_errors(form) }}
+
+    {% form_theme form _self %}
+
+
+            <form action="{{ path('fos_user_profile_edit') }}" method="POST">
+
+
+                <div class="flex-between">
+                    <div class="w-50">
+                        <label>Имя</label>
+                        {{ form_widget(form.firstname, {'attr':{ 'class' : 'input', 'placeholder' : 'Имя' } }) }}
+
+                    </div>
+                    <div class="w-50">
+                        <label>Фамилия</label>
+                        {{ form_widget(form.lastname, {'attr':{ 'class' : 'input', 'placeholder' : 'Фамилия' } }) }}
+
+                    </div>
+                </div>
+
+
+                <label>Страна</label>
+                {{ form_widget(form.country, {'attr':{ 'class' : 'input', 'placeholder' : 'Страна' } }) }}
+                <label>Дата рождения</label>
+                {{ form_widget(form.dateOfBirth, {'attr':{ 'class' : 'input', 'placeholder' : 'Дата рождения' } }) }}
+
+
+                {{ form_widget(form._token) }}
+
+                <input type="submit" class="input send-btn" value="Сохранить">
+                <a href="{{ path('fos_user_profile_show') }}" class="input send-btn" style="text-align: center" >Назад</a>
+            </form>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+{% endblock %}

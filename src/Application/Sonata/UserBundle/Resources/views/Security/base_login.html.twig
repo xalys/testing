@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    {% block fos_user_content %}
+
+
+
+        {% block sonata_user_login %}
+
+            <section class="auth-page">
+                <div class="container">
+                    <div class="nav">
+                        <a href="{{ path('fos_user_security_login') }}" class="active">Вход</a>
+                        <a href="{{ path('fos_user_registration_register') }}">Создать аккаунт</a>
+                    </div>
+                    <div class="enter-form dark">
+
+                        {% block sonata_user_login_error %}
+                            {% if error %}
+                                <div class="login-error">Неверный логин или пароль</div>
+                            {% endif %}
+                        {% endblock %}
+
+
+                        {% block sonata_user_login_form %}
+
+                            <form action="{{ path("fos_user_security_check") }}" method="post" role="form">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+                                <input type="text" class="input" id="username"
+                                       name="_username" value="{{ last_username }}"
+                                       required="required" placeholder="Почта"/>
+
+                                <input type="password" class="input" id="password"
+                                       name="_password" required="required" placeholder="Пароль"/>
+
+                                <button class="input send-btn" id="_submit" name="_submit" type="submit">Войти</button>
+
+
+                            </form>
+
+                        {% endblock %}
+                    </div>
+                </div>
+            </section>
+        {% endblock %}
+    {% endblock fos_user_content %}
+{% endblock %}

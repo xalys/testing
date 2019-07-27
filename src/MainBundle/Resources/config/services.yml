@@ -1,0 +1,16 @@
+services:
+#    main.example:
+#        class: MainBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+#    main.admin.slider:
+#        class: MainBundle\Admin\SliderAdmin
+#        arguments: [~, MainBundle\Entity\Slider, SonataAdminBundle:CRUD]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, group: Слайдер, label: Слайдер, on_top : true }
+
+
+#    main.admin.translate:
+#        class: MainBundle\Admin\TranslateAdmin
+#        arguments: [~, MainBundle\Entity\Translate, SonataAdminBundle:CRUD]
+#        tags:
+#            - {name: sonata.admin, manager_type: orm, group: SEO, label: SEO, on_top: true }
